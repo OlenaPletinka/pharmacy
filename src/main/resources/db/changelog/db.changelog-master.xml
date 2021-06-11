@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <changeSet id="01" author="OlenaPletinka">
+        <insert tableName="symptoms">
+            <column name="name" value="АЛЕРГІЯ"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="02" author="OlenaPletinka">
+        <insert tableName="medicines">
+            <column name="name" value="супрастин"/>
+            <column name="dose" value="2 мл"/>
+            <column name="form" value="РОЗЧИН_ДЛЯ_ВНУТРІШНЬОГО_ЗАСТОСУВАННЯ"/>
+            <column name="signature" value="РОЗЧИН_ДЛЯ_ВНУТРІШНЬОГО_ЗАСТОСУВАННЯ"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
