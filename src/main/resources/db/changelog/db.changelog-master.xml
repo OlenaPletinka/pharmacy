@@ -6,20 +6,200 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+    <!--<include file="src/main/resources/db/changelog/my_changelog.sql" relativeToChangelogFile="true"/>-->
+
 
     <changeSet id="01" author="OlenaPletinka">
         <insert tableName="symptoms">
+            <column name="name" value="ГОЛОВНИЙ_БІЛЬ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ЗУБНИЙ_БІЛЬ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="БІЛЬ_У_СПИНІ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="СПАЗМИ_У_ЖИВОТІ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="М_ЯЗОВИЙ_БІЛЬ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="БІЛЬ_У_ГОРЛІ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ТЕМПЕРАТУРА"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="НУДОТА"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="БЛЮВАННЯ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ЗАПАМОРОЧЕННЯ"/>
+        </insert>
+        <insert tableName="symptoms">
             <column name="name" value="АЛЕРГІЯ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="СВЕРБІЖ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ГЕРПЕТИЧНІ_ВИСИПАННЯ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ПЕЧІЯ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="БЕЗСОННЯ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ТРИВОГА"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="СТРЕС"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ДРАТІВЛИВІСТЬ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="БАКТЕРІАЛЬНІ_ІНФЕКЦІЇ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ВІРУСНІ_ІНФЕКЦІЇ"/>
+        </insert>
+        <insert tableName="symptoms">
+            <column name="name" value="ПІДВИЩЕНИЙ_АРТЕРІАЛЬНИЙ_ТИСК"/>
         </insert>
     </changeSet>
 
     <changeSet id="02" author="OlenaPletinka">
+    <insert tableName="group_of_medicines">
+        <column name="name" value="ЖАРОЗНИЖУЮЧІ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="ЗНЕБОЛЮЮЧІ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="СПАЗМОЛІТИКИ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="АНТИГІСТАМІННІ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="АНТИСЕПТИКИ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="СОРБЕНТИ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="ПРОТИЗАПАЛЬНІ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="АНТИБІОТИКИ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="ПРОТИВІРУСНІ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="АНТИГІПЕРТЕНЗИВНІ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="СЕДАТИВНІ"/>
+    </insert>
+        <insert tableName="group_of_medicines">
+        <column name="name" value="СНОДІЙНІ"/>
+    </insert>
+    </changeSet>
+
+    <changeSet id="03" author="OlenaPletinka">
         <insert tableName="medicines">
-            <column name="name" value="супрастин"/>
+            <column name="name" value="СУПРАСТИН"/>
             <column name="dose" value="2 мл"/>
             <column name="form" value="РОЗЧИН_ДЛЯ_ВНУТРІШНЬОГО_ЗАСТОСУВАННЯ"/>
-            <column name="signature" value="РОЗЧИН_ДЛЯ_ВНУТРІШНЬОГО_ЗАСТОСУВАННЯ"/>
+            <column name="quantity" valueNumeric="10"/>
+            <column name="signature" value="Внутрішньом'язево 2 рази на добу"/>
         </insert>
+        <insert tableName="medicines_group">
+            <column name="medicines_name" value="СУПРАСТИН"/>
+            <column name="medicines_dose" value="2 мл"/>
+            <column name="medicines_form" value="РОЗЧИН_ДЛЯ_ВНУТРІШНЬОГО_ЗАСТОСУВАННЯ"/>
+            <column name="groups_name" value="АНТИГІСТАМІННІ"/>
+        </insert>
+        <insert tableName="medicines_symptoms">
+            <column name="medicines_name" value="СУПРАСТИН"/>
+            <column name="medicines_dose" value="2 мл"/>
+            <column name="medicines_form" value="РОЗЧИН_ДЛЯ_ВНУТРІШНЬОГО_ЗАСТОСУВАННЯ"/>
+            <column name="symptoms_name" value="АЛЕРГІЯ"/>
+        </insert>
+        <insert tableName="medicines_symptoms">
+            <column name="medicines_name" value="СУПРАСТИН"/>
+            <column name="medicines_dose" value="2 мл"/>
+            <column name="medicines_form" value="РОЗЧИН_ДЛЯ_ВНУТРІШНЬОГО_ЗАСТОСУВАННЯ"/>
+            <column name="symptoms_name" value="СВЕРБІЖ"/>
+        </insert>
+
+        <insert tableName="medicines">
+            <column name="name" value="НУРОФЕН"/>
+            <column name="dose" value="500 мг"/>
+            <column name="form" value="КАПСУЛИ"/>
+            <column name="signature" value="По 1 капс до 3 разів на добу."/>
+            <column name="quantity" valueNumeric="10"/>
+        </insert>
+        <insert tableName="medicines_group">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="groups_name" value="ЖАРОЗНИЖУЮЧІ"/>
+        </insert>
+        <insert tableName="medicines_group">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="groups_name" value="ЗНЕБОЛЮЮЧІ"/>
+        </insert>
+        <insert tableName="medicines_group">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="groups_name" value="ПРОТИЗАПАЛЬНІ"/>
+        </insert>
+        <insert tableName="medicines_symptoms">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="symptoms_name" value="ГОЛОВНИЙ_БІЛЬ"/>
+        </insert>
+        <insert tableName="medicines_symptoms">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="symptoms_name" value="ЗУБНИЙ_БІЛЬ"/>
+        </insert>
+        <insert tableName="medicines_symptoms">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="symptoms_name" value="БІЛЬ_У_СПИНІ"/>
+        </insert>
+        <insert tableName="medicines_symptoms">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="symptoms_name" value="М_ЯЗОВИЙ_БІЛЬ"/>
+        </insert>
+        <insert tableName="medicines_symptoms">
+            <column name="medicines_name" value="НУРОФЕН"/>
+            <column name="medicines_dose" value="500 мг"/>
+            <column name="medicines_form" value="КАПСУЛИ"/>
+            <column name="symptoms_name" value="ТЕМПЕРАТУРА"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="04" author="OlenaPletinka">
+        <sqlFile dbms="mysql" path="db/changelog/my_changelog.sql" />
     </changeSet>
 
 </databaseChangeLog>
