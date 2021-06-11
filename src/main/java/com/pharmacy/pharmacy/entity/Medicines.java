@@ -14,28 +14,31 @@ public class Medicines {
  @OrderBy("name")
  private MedicinesPK id;
 
+ @Column(nullable = false)
+ private Integer quantity;
+
  @Column
  private String signature;
 
 
- @ElementCollection(fetch = FetchType.LAZY)
+ @ManyToMany(fetch = FetchType.LAZY)
  @CollectionTable(name = "medicines_group")
  @JoinColumns({
            @JoinColumn(name = "medicines_id_name"),
            @JoinColumn(name = "medicines_id_dose"),
            @JoinColumn(name = "medicines_id_form")
  })
- @Column(nullable = false)
+ @Column(nullable = false, unique = false)
  private List<GroupOfMedicines> groups = new ArrayList<>();
 
- @ElementCollection(fetch = FetchType.LAZY)
+ @ManyToMany(fetch = FetchType.LAZY)
  @CollectionTable(name = "medicines_symptoms")
  @JoinColumns({
            @JoinColumn(name = "medicines_id_name"),
            @JoinColumn(name = "medicines_id_dose"),
            @JoinColumn(name = "medicines_id_form")
  })
- @Column(nullable = false)
+ @Column(nullable = false, unique = false)
  private List<Symptoms> symptoms = new ArrayList<>();
 
  @Embeddable

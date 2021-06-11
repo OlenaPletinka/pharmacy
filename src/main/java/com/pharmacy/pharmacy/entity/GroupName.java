@@ -1,7 +1,5 @@
 package com.pharmacy.pharmacy.entity;
 
-import javax.persistence.Entity;
-
 public enum GroupName {
   ЖАРОЗНИЖУЮЧІ,
   ЗНЕБОЛЮЮЧІ,
@@ -13,5 +11,6 @@ public enum GroupName {
   ПРОТИВІРУСНІ,
   АНТИГІПЕРТЕНЗИВНІ,
   СЕДАТИВНІ,
-  СНОДІЙНІ
+  СНОДІЙНІ,
+  АНТИСЕПТИКИ
 }

@@ -11,10 +11,10 @@ public class PharmacyWarehouse extends Warehouse{
   @Column
   private Double wholesalePrice;
 
-  @Column
-  private Integer norm = 20;
+  @Column(columnDefinition = "integer default 20")
+  private Integer norm;
 
-  @Column
-  private Integer critical_norm = 10;
+  @Column(columnDefinition = "integer default 10")
+  private Integer critical_norm;
 
 }

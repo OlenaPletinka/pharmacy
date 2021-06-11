@@ -14,9 +14,9 @@ public class Warehouse {
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumns({
-            @JoinColumn(name = "medicines_id_name", referencedColumnName = "name", nullable = false),
-            @JoinColumn(name = "medicines_id_dose", referencedColumnName = "dose", nullable = false),
-            @JoinColumn(name = "medicines_id_form", referencedColumnName = "form", nullable = false)
+            @JoinColumn(name = "medicines_name", referencedColumnName = "name", nullable = false),
+            @JoinColumn(name = "medicines_dose", referencedColumnName = "dose", nullable = false),
+            @JoinColumn(name = "medicines_form", referencedColumnName = "form", nullable = false)
   })
   @OrderBy("medicines_id_name")
   private Medicines medicine;
