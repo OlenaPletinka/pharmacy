@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk-UA" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>handbook</title>
+    <font color="#3344FF" size="8">
+        <center> ДОВІДНИК ЛІКАРСЬКИХ ЗАСОБІВ </center>
+    </font>
+
+</head>
+<body style="background-color:#ffffcc;">
+
+
+
+<form action="/search/all" method="get" style="margin-top: 50px">
+    <button style="background-color:#66ff99; border-color:blue; color:black; height:40px;width:180px" >ВСІ ЛІКАРСЬКІ ЗАСОБИ</button>
+</form>
+
+
+<form action="/search/byName" method="get" style="margin-top: 50px">
+    <table>
+        <tr>
+            <font color="#3344FF" size="3">ВИБЕРІТЬ ЛІКАРСЬКИЙ ЗАСІБ:</font>
+            <td>
+                <select name="name" id="name">
+                    <option value=""> -- </option>
+                    <option th:each="medicine : ${medicines}"
+                            th:value="${medicine.id.name}"
+                            th:utext="${medicine.id.name}"/>
+                </select>
+            </td>
+            <td><input name="submit" type="submit" value="ПОШУК" style="background-color:#66ff99; border-color:blue; color:black;" /></td>
+        </tr>
+    </table>
+</form>
+
+
+<form action="/search/byGroup" method="get" style="margin-top: 50px">
+    <table>
+        <tr>
+            <font color="#3344FF" size="3">ВИБЕРІТЬ ГРУПУ ДЛЯ ПОШУКУ ЛІКАРСЬКИХ ЗАСОБІВ:</font>
+            <td>
+                <select name="group" id="group">
+                    <option value=""> -- </option>
+                    <option th:each="group : ${groups}"
+                            th:value="${group.name.toString()}"
+                            th:utext="${group.name.toString()}"/>
+                </select>
+            </td>
+            <td><input name="submit" type="submit" value="ПОШУК" style="background-color:#66ff99; border-color:blue; color:black;" /></td>
+        </tr>
+    </table>
+</form>
+
+
+<form action="/search/bySymptom" method="get" style="margin-top: 50px">
+    <table>
+        <tr>
+
+            <font color="#3344FF" size="3">ВИБЕРІТЬ СИМПТОМ ДЛЯ ПОШУКУ ЛІКАРСЬКИХ ЗАСОБІВ:</font>
+            <td>
+                <select name="symptom" id="symptom">
+                    <option value=""> -- </option>
+                    <option th:each="symptom : ${symptoms}"
+                            th:value="${symptom.name.toString()}"
+                            th:utext="${symptom.name.toString()}"/>
+                </select>
+            </td>
+            <td><input name="submit" type="submit" value="ПОШУК" style="background-color:#66ff99; border-color:blue; color:black;" /></td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

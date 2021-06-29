@@ -1,6 +1,5 @@
 package com.pharmacy.pharmacy.services;
 
-import com.pharmacy.pharmacy.entity.GroupName;
 import com.pharmacy.pharmacy.entity.GroupOfMedicines;
 import com.pharmacy.pharmacy.repository.GroupOfMedicinesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +14,9 @@ public class GroupOfMedicinesService {
 
   public void addGroup(List<GroupOfMedicines> groupOfMedicines){
     groupOfMedicinesRepository.saveAll(groupOfMedicines);
+  }
+
+  public List<GroupOfMedicines> showAllGroupOfMedicines() {
+    return groupOfMedicinesRepository.findAll();
   }
 }
