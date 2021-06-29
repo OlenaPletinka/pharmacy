@@ -1,6 +1,7 @@
 package com.pharmacy.pharmacy.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -43,6 +44,7 @@ public class Medicines {
 
  @Embeddable
  @Data
+ @NoArgsConstructor
  public static class MedicinesPK implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -52,6 +54,12 @@ public class Medicines {
 
   @Enumerated(EnumType.STRING)
   private DosageForm form;
+
+  public MedicinesPK(String name, String dose, DosageForm form) {
+   this.name = name;
+   this.dose = dose;
+   this.form = form;
+  }
 
  }
 }

@@ -1,5 +1,6 @@
 package com.pharmacy.pharmacy.services;
 
+import com.pharmacy.pharmacy.entity.DosageForm;
 import com.pharmacy.pharmacy.entity.GroupName;
 import com.pharmacy.pharmacy.entity.Medicines;
 import com.pharmacy.pharmacy.entity.SymptomsName;
@@ -86,6 +87,11 @@ public class MedicinesService {
       throw new NoSuchEnumValueException("Даної групи лікарських засобів нема у довіднику.");
     }
     return groupName;
+  }
+
+  public Medicines findById(String name, String dose, String form) {
+    Medicines.MedicinesPK id = new Medicines.MedicinesPK(name, dose, DosageForm.valueOf(form));
+    return medicinesRepository.findById(id);
   }
 //  @Transactional
 //  public Medicines addMedicinesToPharmacyWarehouse(Medicines medicines){

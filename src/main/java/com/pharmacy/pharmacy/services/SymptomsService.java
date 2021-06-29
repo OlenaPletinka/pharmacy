@@ -1,6 +1,5 @@
 package com.pharmacy.pharmacy.services;
 
-import com.pharmacy.pharmacy.entity.GroupOfMedicines;
 import com.pharmacy.pharmacy.entity.Symptoms;
 import com.pharmacy.pharmacy.repository.SymptomsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +14,9 @@ public class SymptomsService {
 
   public void addSympoms(List<Symptoms>symptoms){
     symptomsRepository.saveAll(symptoms);
+  }
+
+  public List<Symptoms> showAllSymptoms() {
+    return symptomsRepository.findAll();
   }
 }

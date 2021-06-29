@@ -5,15 +5,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pharmacy.pharmacy.entity.Medicines;
 import com.pharmacy.pharmacy.services.MedicinesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
+@Controller
 @RequestMapping("/search")
 public class SearchMedicinesController {
   @Autowired
@@ -21,30 +23,51 @@ public class SearchMedicinesController {
   @Autowired
   private ObjectMapper objectMapper;
 
-  @GetMapping(value = "/byName", produces = "application/json")
-  public ResponseEntity<String> searchByName(@RequestParam(name = "name") String name) throws JsonProcessingException {
+  @RequestMapping(value = "/byName", method = RequestMethod.GET)
+  public String searchByName(@RequestParam(name = "name") String name, Model model) throws JsonProcessingException {
     UserRequestValidator.validateSearchByName(name);
 
-    return ResponseEntity.ok(objectMapper.writeValueAsString(medicinesService.searchByName(name)));
+    List<Medicines> medicines = medicinesService.searchByName(name);
+    model.addAttribute("medicines", medicines);
+
+
+    return "find_by";
   }
 
-  @GetMapping(value = "/bySymptom", produces = "application/json")
-  public ResponseEntity<String> searchBySymptom(@RequestParam(name = "symptom") String symptom) throws JsonProcessingException {
+  @RequestMapping(value = "/bySymptom", method = GET)
+  public String searchBySymptom(@RequestParam(name = "symptom") String symptom, Model model) throws JsonProcessingException {
     UserRequestValidator.validateSearchBySymptom(symptom);
+    List<Medicines> medicines = medicinesService.searchBySymptom(symptom);
+    model.addAttribute("medicines", medicines);
 
-    return ResponseEntity.ok(objectMapper.writeValueAsString(medicinesService.searchBySymptom(symptom)));
+    return "find_by";
   }
 
-  @GetMapping(value = "/byGroup", produces = "application/json")
-  public ResponseEntity<String> searchByGroup(@RequestParam(name = "group") String group) throws JsonProcessingException {
+  @RequestMapping(value = "/byGroup", method = GET)
+  public String searchByGroup(@RequestParam(name = "group") String group, Model model) throws JsonProcessingException {
     UserRequestValidator.validateSearchByGroup(group);
 
-    return ResponseEntity.ok(objectMapper.writeValueAsString(medicinesService.searchByGroup(group)));
+    List<Medicines> medicines = medicinesService.searchByGroup(group);
+    model.addAttribute("medicines", medicines);
+
+    return "find_by";
   }
 
-  @GetMapping(value = "/all", produces = "application/json")
-  public List<Medicines> showAllMedicines(){
-    return medicinesService.showAllMedicines();
+  @RequestMapping(value = "/all", method = RequestMethod.GET)
+  public String showAllMedicines(Model model){
+    List<Medicines> medicines = medicinesService.showAllMedicines();
+    model.addAttribute("medicines", medicines);
+
+    return "all_medicines_handbook";
+  }
+
+  @RequestMapping(value = "/description", method = GET)
+  public String profile(@RequestParam("name") String name, @RequestParam("dose") String dose, @RequestParam("form") String form, Model model) {
+
+    Medicines medicine = medicinesService.findById(name, dose, form);
+    model.addAttribute("medicine", medicine);
+
+    return "description";
   }
 
 
