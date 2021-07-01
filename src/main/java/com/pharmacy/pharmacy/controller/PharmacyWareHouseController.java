@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class PharmacyWareHouseController {
@@ -37,7 +38,8 @@ public class PharmacyWareHouseController {
       clientOrderService.createOrder(name, dose, form, number);
     }
 
-    List<PharmacyWarehouse> medicines = pharmacyWarehouseService.showAllMedicinesOnWarehouse();
+    List<String> medicines = pharmacyWarehouseService.showAllMedicinesOnWarehouse().stream().map(pharmacyWarehouse -> pharmacyWarehouse.getMedicine().getId().getName()).distinct().collect(Collectors.toList());
+
     model.addAttribute("medicines", medicines);
 
     return "select_medicines";
