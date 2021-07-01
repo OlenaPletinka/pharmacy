@@ -12,10 +12,6 @@ public class ClientOrderItems {
   @GeneratedValue
   private Integer id;
 
-  @ManyToOne
-  @JoinColumn(name = "client_order_id", nullable = false)
-  private ClientOrder clientOrder;
-
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumns({
             @JoinColumn(name = "medicines_id_name", referencedColumnName = "name", nullable = false),

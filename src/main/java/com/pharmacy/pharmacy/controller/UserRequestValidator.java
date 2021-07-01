@@ -3,8 +3,10 @@ package com.pharmacy.pharmacy.controller;
 import com.pharmacy.pharmacy.entity.PharmacyWarehouse;
 import com.pharmacy.pharmacy.exception.EmptyRequestException;
 import com.pharmacy.pharmacy.exception.InvalidDataForAddindToWharehouseException;
+import com.pharmacy.pharmacy.exception.NotValidDateForReportException;
 import org.apache.logging.log4j.util.Strings;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class UserRequestValidator {
@@ -37,6 +39,12 @@ public class UserRequestValidator {
   private static void validate(String name, String s) {
     if (Strings.isBlank(name)) {
       throw new EmptyRequestException(s);
+    }
+  }
+
+  public static void validateDate(LocalDate start, LocalDate to) {
+    if (start.isAfter(to)){
+      throw new NotValidDateForReportException("Введіть, будь ласка, коректні дати. Дата від якої буде генеруватись звіт, повинна бути перед датою, до якої буде генеруватись звіт.");
     }
   }
 }

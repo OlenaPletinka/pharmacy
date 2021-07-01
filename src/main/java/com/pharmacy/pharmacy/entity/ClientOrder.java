@@ -3,9 +3,6 @@ package com.pharmacy.pharmacy.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Data
@@ -14,12 +11,7 @@ public class ClientOrder {
   @GeneratedValue
   private Integer id;
 
-  @OneToMany(mappedBy = "clientOrder")
-  private List<ClientOrderItems> items = new ArrayList<>();
-
-  @Column
-  private Double sum;
-
-  @Column
-  private LocalDateTime time;
+  @OneToOne()
+  @JoinColumn(name = "client_order_item_id", referencedColumnName = "id")
+  private ClientOrderItems items;
 }

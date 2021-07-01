@@ -26,8 +26,8 @@
                 <select name="name" id="name">
                     <option value=""> -- </option>
                     <option th:each="medicine : ${medicines}"
-                            th:value="${medicine.id.name}"
-                            th:utext="${medicine.id.name}"/>
+                            th:value="${medicine}"
+                            th:utext="${medicine}"/>
                 </select>
             </td>
             <td><input name="submit" type="submit" value="ПОШУК" style="background-color:#66ff99; border-color:blue; color:black;" /></td>
