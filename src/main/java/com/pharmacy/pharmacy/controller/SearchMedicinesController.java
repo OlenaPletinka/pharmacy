@@ -24,7 +24,7 @@ public class SearchMedicinesController {
   private ObjectMapper objectMapper;
 
   @RequestMapping(value = "/byName", method = RequestMethod.GET)
-  public String searchByName(@RequestParam(name = "name") String name, Model model) throws JsonProcessingException {
+  public String searchByName(@RequestParam(name = "name") String name, Model model){
     UserRequestValidator.validateSearchByName(name);
 
     List<Medicines> medicines = medicinesService.searchByName(name);
@@ -35,7 +35,7 @@ public class SearchMedicinesController {
   }
 
   @RequestMapping(value = "/bySymptom", method = GET)
-  public String searchBySymptom(@RequestParam(name = "symptom") String symptom, Model model) throws JsonProcessingException {
+  public String searchBySymptom(@RequestParam(name = "symptom") String symptom, Model model){
     UserRequestValidator.validateSearchBySymptom(symptom);
     List<Medicines> medicines = medicinesService.searchBySymptom(symptom);
     model.addAttribute("medicines", medicines);
@@ -62,7 +62,7 @@ public class SearchMedicinesController {
   }
 
   @RequestMapping(value = "/description", method = GET)
-  public String profile(@RequestParam("name") String name, @RequestParam("dose") String dose, @RequestParam("form") String form, Model model) {
+  public String showDescription(@RequestParam("name") String name, @RequestParam("dose") String dose, @RequestParam("form") String form, Model model) {
 
     Medicines medicine = medicinesService.findById(name, dose, form);
     model.addAttribute("medicine", medicine);
