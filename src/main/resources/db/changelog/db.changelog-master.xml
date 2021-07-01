@@ -6,9 +6,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <!--<include file="src/main/resources/db/changelog/my_changelog.sql" relativeToChangelogFile="true"/>-->
-
-
     <changeSet id="01" author="OlenaPletinka">
         <insert tableName="symptoms">
             <column name="name" value="ГОЛОВНИЙ_БІЛЬ"/>
@@ -76,42 +73,42 @@
     </changeSet>
 
     <changeSet id="02" author="OlenaPletinka">
-    <insert tableName="group_of_medicines">
-        <column name="name" value="ЖАРОЗНИЖУЮЧІ"/>
-    </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="ЗНЕБОЛЮЮЧІ"/>
-    </insert>
+            <column name="name" value="ЖАРОЗНИЖУЮЧІ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="СПАЗМОЛІТИКИ"/>
-    </insert>
+            <column name="name" value="ЗНЕБОЛЮЮЧІ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="АНТИГІСТАМІННІ"/>
-    </insert>
+            <column name="name" value="СПАЗМОЛІТИКИ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="АНТИСЕПТИКИ"/>
-    </insert>
+            <column name="name" value="АНТИГІСТАМІННІ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="СОРБЕНТИ"/>
-    </insert>
+            <column name="name" value="АНТИСЕПТИКИ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="ПРОТИЗАПАЛЬНІ"/>
-    </insert>
+            <column name="name" value="СОРБЕНТИ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="АНТИБІОТИКИ"/>
-    </insert>
+            <column name="name" value="ПРОТИЗАПАЛЬНІ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="ПРОТИВІРУСНІ"/>
-    </insert>
+            <column name="name" value="АНТИБІОТИКИ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="АНТИГІПЕРТЕНЗИВНІ"/>
-    </insert>
+            <column name="name" value="ПРОТИВІРУСНІ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="СЕДАТИВНІ"/>
-    </insert>
+            <column name="name" value="АНТИГІПЕРТЕНЗИВНІ"/>
+        </insert>
         <insert tableName="group_of_medicines">
-        <column name="name" value="СНОДІЙНІ"/>
-    </insert>
+            <column name="name" value="СЕДАТИВНІ"/>
+        </insert>
+        <insert tableName="group_of_medicines">
+            <column name="name" value="СНОДІЙНІ"/>
+        </insert>
     </changeSet>
 
     <changeSet id="03" author="OlenaPletinka">
@@ -199,7 +196,7 @@
     </changeSet>
 
     <changeSet id="04" author="OlenaPletinka">
-        <sqlFile dbms="mysql" path="db/changelog/my_changelog.sql" />
+        <sqlFile dbms="mysql" path="db/changelog/my_changelog.sql"/>
     </changeSet>
 
 </databaseChangeLog>

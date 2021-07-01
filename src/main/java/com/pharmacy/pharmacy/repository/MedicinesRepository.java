@@ -1,8 +1,8 @@
 package com.pharmacy.pharmacy.repository;
 
-import com.pharmacy.pharmacy.entity.GroupName;
 import com.pharmacy.pharmacy.entity.Medicines;
-import com.pharmacy.pharmacy.entity.SymptomsName;
+import com.pharmacy.pharmacy.enums.GroupName;
+import com.pharmacy.pharmacy.enums.SymptomsName;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

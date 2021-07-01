@@ -1,4 +1,4 @@
-package com.pharmacy.pharmacy.entity;
+package com.pharmacy.pharmacy.enums;
 
 public enum DosageForm {
   ТАБЛЕТКИ("таблетки"),
@@ -14,7 +14,7 @@ public enum DosageForm {
 
   public final String name;
 
-   DosageForm(String name){
+  DosageForm(String name) {
     this.name = name;
   }
 }

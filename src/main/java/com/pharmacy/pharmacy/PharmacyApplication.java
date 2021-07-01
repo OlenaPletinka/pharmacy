@@ -22,5 +22,4 @@ public class PharmacyApplication {
     liquibase.afterPropertiesSet();
 
   }
-
 }

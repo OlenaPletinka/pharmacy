@@ -20,12 +20,12 @@ public class ReportService {
     Map<Medicines, List<ClientOrderItems>> map = items.stream().collect(groupingBy(clientOrderItems -> clientOrderItems.getMedicine()));
 
     List<ReportDto> reportDtos = new ArrayList<>();
-    for (Map.Entry<Medicines, List<ClientOrderItems>> entry : map.entrySet()){
+    for (Map.Entry<Medicines, List<ClientOrderItems>> entry : map.entrySet()) {
       Integer quantity = 0;
       Double totalCost = 0.0;
-      for(ClientOrderItems order :entry.getValue()){
-        quantity+=order.getQuantity();
-        totalCost+=order.getCost();
+      for (ClientOrderItems order : entry.getValue()) {
+        quantity += order.getQuantity();
+        totalCost += order.getCost();
       }
       reportDtos.add(new ReportDto(entry.getKey(), quantity, totalCost));
     }

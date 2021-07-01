@@ -12,7 +12,7 @@ public class SymptomsService {
   @Autowired
   private SymptomsRepository symptomsRepository;
 
-  public void addSympoms(List<Symptoms>symptoms){
+  public void addSympoms(List<Symptoms> symptoms) {
     symptomsRepository.saveAll(symptoms);
   }
 

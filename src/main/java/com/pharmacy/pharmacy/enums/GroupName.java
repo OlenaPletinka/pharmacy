@@ -1,4 +1,4 @@
-package com.pharmacy.pharmacy.entity;
+package com.pharmacy.pharmacy.enums;
 
 public enum GroupName {
   ЖАРОЗНИЖУЮЧІ,

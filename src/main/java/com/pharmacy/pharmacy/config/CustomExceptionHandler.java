@@ -11,13 +11,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
-  //унаслідувалися від цього класу щоб використати @ExceptionHandler
 
   private Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
 
   @ExceptionHandler(value = {Exception.class})
   public ResponseEntity<ApiErrorResponse> unknownException(Exception ex) {
-    //ApiErrorResponse просто обєкт який ми створили щоб передати меседж
     if (ex instanceof ExceptionService) {
       logger.warn("Custom expected exception", ex);
       throw (ExceptionService) ex;

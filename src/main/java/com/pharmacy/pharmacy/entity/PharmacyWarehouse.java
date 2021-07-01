@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 
 @Entity
 @Data
-public class PharmacyWarehouse extends Warehouse{
+public class PharmacyWarehouse extends Warehouse {
   @Column
   private Double wholesalePrice;
 

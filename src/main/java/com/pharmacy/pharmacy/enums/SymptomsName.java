@@ -1,4 +1,4 @@
-package com.pharmacy.pharmacy.entity;
+package com.pharmacy.pharmacy.enums;
 
 public enum SymptomsName {
   ГОЛОВНИЙ_БІЛЬ("головний біль"),
@@ -28,6 +28,4 @@ public enum SymptomsName {
   SymptomsName(String name) {
     this.name = name;
   }
-
-
 }

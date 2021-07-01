@@ -12,7 +12,7 @@ public class GroupOfMedicinesService {
   @Autowired
   private GroupOfMedicinesRepository groupOfMedicinesRepository;
 
-  public void addGroup(List<GroupOfMedicines> groupOfMedicines){
+  public void addGroup(List<GroupOfMedicines> groupOfMedicines) {
     groupOfMedicinesRepository.saveAll(groupOfMedicines);
   }
 

@@ -22,6 +22,6 @@ public class OrderHistoryService {
   }
 
   public Double calculateReceipts(List<OrderHistory> orderHistories) {
-    return orderHistories.stream().map(orderHistory -> orderHistory.getSum()).reduce((aDouble, aDouble2) -> aDouble+aDouble2).orElseThrow(IllegalArgumentException::new);
+    return orderHistories.stream().map(orderHistory -> orderHistory.getSum()).reduce((aDouble, aDouble2) -> aDouble + aDouble2).orElseThrow(IllegalArgumentException::new);
   }
 }

@@ -25,22 +25,20 @@ public class ReportController {
   public String showReport(@RequestParam("start") String startDate, @RequestParam("to") String toDate, Model model) {
     LocalDate start = LocalDate.parse(startDate);
     LocalDate to = LocalDate.parse(toDate);
+
     UserRequestValidator.validateDate(start, to);
+
     model.addAttribute("startDate", start);
     model.addAttribute("toDate", to);
 
     List<OrderHistory> orderHistories = orderHistoryService.findAllOrdersBetweenDate(start, to);
-    if(!orderHistories.isEmpty()) {
+    if (!orderHistories.isEmpty()) {
       Double receipts = orderHistoryService.calculateReceipts(orderHistories);
-
       model.addAttribute("receipts", receipts);
-
       List<ReportDto> reportDtos = reportService.generateReportDtos(orderHistories);
-
       model.addAttribute("reportDtos", reportDtos);
     }
 
     return "report";
-
   }
 }

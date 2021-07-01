@@ -23,7 +23,7 @@ public class CheckoutController {
   public String checkout(Model model) {
     List<ClientOrder> orderList = clientOrderService.showAllItems();
 
-    if (orderList.isEmpty()){
+    if (orderList.isEmpty()) {
       throw new BasketIsEmptyException("Ваш кошик порожній! Продовжіть, будь ласка, покупки.");
     }
 
