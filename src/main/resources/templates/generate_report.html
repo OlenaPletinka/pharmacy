@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="uk-UA">
-
 <head>
     <meta charset="UTF-8">
-    <title>Report page</title>
+    <title>Generate report page</title>
     <font color="#000000" size="7">
-        <center> ЗВІТ ПРО РОБОТУ АПТЕКИ </center>
+        <center> ЗВІТ ПРО РОБОТУ АПТЕКИ</center>
     </font>
-
 </head>
-<body style="background-color:#ffffcc;">
 
+<body style="background-color:#ffffcc;">
 <form action="/report" method="get">
 
-<h3>ОБЕРІТЬ ДАТИ ДЛЯ ФОРМУВАННЯ ЗВІТУ</h3>
-<br>
-<label for="start">від:
+    <h3>ОБЕРІТЬ ДАТИ ДЛЯ ФОРМУВАННЯ ЗВІТУ</h3>
+    <br>
+    <label for="start">від:
 
-<input type="date" id="start" name="start"
-       value="dd/mm/yyyy"
-       min="2021-01-01" max="2029-01-01" required>
-    <span class="validity"></span>
-</label>
+        <input type="date" id="start" name="start"
+               value="dd/mm/yyyy"
+               min="2021-01-01" max="2029-01-01" required>
+        <span class="validity"></span>
+    </label>
 
     <label for="start">до:
 
-<input type="date" id="to" name="to"
-       value="dd/mm/yyyy"
-       min="2021-01-01" max="2029-01-01" required>
+        <input type="date" id="to" name="to"
+               value="dd/mm/yyyy"
+               min="2021-01-01" max="2029-01-01" required>
         <span class="validity"></span>
     </label>
-        <br>
     <br>
-    <p><button style="background-color:#66ff99; border-color:blue; color:black; height:50px;width:250px" type="submit" name="value">ЗГЕНЕРУВАТИ ЗВІТ</button></p>
+    <br>
+    <p>
+        <button style="background-color:#66ff99; border-color:blue; color:black; height:50px;width:250px" type="submit"
+                name="value">ЗГЕНЕРУВАТИ ЗВІТ
+        </button>
+    </p>
 </form>
 </body>
 </html>

@@ -2,12 +2,12 @@
 <html lang="uk-UA" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>handbook</title>
+    <title>Description</title>
     <font color="#000000" size="7">
-        <center> ІНСТРУКЦІЯ </center>
+        <center> ІНСТРУКЦІЯ</center>
     </font>
-
 </head>
+
 <body style="background-color:#ffffcc;">
 <H1 th:text="${medicine.id.name}+' '+${medicine.id.dose}+' '+${medicine.id.form}+' N='+${medicine.quantity}"></H1>
 
@@ -19,16 +19,16 @@
 <h3>ФАРМАКОЛОГІЧНА ГРУПА</h3>
 <tr th:each="group : ${medicine.groups}">
     <font size="2">
-    <td style="white-space: post;" th:text="'* '+${group.name.toString()}"></td>
-    <br>
+        <td style="white-space: post;" th:text="'* '+${group.name.toString()}"></td>
+        <br>
     </font>
 </tr>
 
 <h3>ПОКАЗАННЯ</h3>
 <tr th:each="symptom : ${medicine.symptoms}">
     <font size="2">
-    <td style="white-space: post;" th:text="'* '+${symptom.name.toString()}"></td>
-    <br>
+        <td style="white-space: post;" th:text="'* '+${symptom.name.toString()}"></td>
+        <br>
     </font>
 </tr>
 

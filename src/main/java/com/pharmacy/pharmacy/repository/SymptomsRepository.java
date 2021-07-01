@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface SymptomsRepository extends CrudRepository<Symptoms, Integer> {
   List<Symptoms> findAll();
-
 }

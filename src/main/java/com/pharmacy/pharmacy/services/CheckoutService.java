@@ -34,8 +34,14 @@ public class CheckoutService {
     clientOrderService.cleanupClientOrder();
   }
 
+  public Double calculateTotalSum(List<ClientOrder> orderList) {
+    Optional<Double> optional = orderList.stream().map(clientOrder -> clientOrder.getItems().getCost()).reduce((aDouble, aDouble2) -> aDouble + aDouble2);
+
+    return optional.orElseThrow(IllegalStateException::new);
+  }
+
   private void reduceMedicinesQuantity(List<ClientOrderItems> items) {
-    for (ClientOrderItems item:items){
+    for (ClientOrderItems item : items) {
       Medicines medicine = item.getMedicine();
       Integer quantity = item.getQuantity();
       pharmacyWarehouseService.reduceMedicinesQuantity(medicine, quantity);
@@ -49,18 +55,12 @@ public class CheckoutService {
     orderHistoryService.save(createOrderHistory(items, sum));
   }
 
-  private OrderHistory createOrderHistory(List<ClientOrderItems> items, Double sum){
+  private OrderHistory createOrderHistory(List<ClientOrderItems> items, Double sum) {
     OrderHistory orderHistory = new OrderHistory();
     orderHistory.setItems(items);
     orderHistory.setSum(sum);
     orderHistory.setDate(LocalDate.now());
 
     return orderHistory;
-  }
-
-  public Double calculateTotalSum(List<ClientOrder> orderList) {
-    Optional<Double> optional = orderList.stream().map(clientOrder -> clientOrder.getItems().getCost()).reduce((aDouble, aDouble2) -> aDouble + aDouble2);
-
-    return optional.orElseThrow(IllegalStateException::new);
   }
 }

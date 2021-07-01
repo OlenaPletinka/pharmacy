@@ -25,26 +25,26 @@ public class UserRequestValidator {
   public static void validaterequest(PharmacyWarehouse pharmacyWarehouse) {
     if (!Objects.nonNull(pharmacyWarehouse)) {
       throw new InvalidDataForAddindToWharehouseException("Введіть дані для додавання лікарських засобів на склад.");
-    }else if (Objects.isNull(pharmacyWarehouse.getMedicine())) {
+    } else if (Objects.isNull(pharmacyWarehouse.getMedicine())) {
       throw new InvalidDataForAddindToWharehouseException("Введіть назву лікарського засобу, щоб додати його на склад аптеки.");
-    }else if(Objects.isNull(pharmacyWarehouse.getPrice())){
+    } else if (Objects.isNull(pharmacyWarehouse.getPrice())) {
       throw new InvalidDataForAddindToWharehouseException("Введіть ціну лікарського засобу, щоб додати його на склад аптеки.");
-    }else if(Objects.isNull(pharmacyWarehouse.getWholesalePrice())){
+    } else if (Objects.isNull(pharmacyWarehouse.getWholesalePrice())) {
       throw new InvalidDataForAddindToWharehouseException("Введіть оптову ціну лікарського засобу, щоб додати його на склад аптеки.");
-    }else if(Objects.isNull(pharmacyWarehouse.getQuantity())||pharmacyWarehouse.getQuantity().equals(0)){
+    } else if (Objects.isNull(pharmacyWarehouse.getQuantity()) || pharmacyWarehouse.getQuantity().equals(0)) {
       throw new InvalidDataForAddindToWharehouseException("Введіть кількість лікарських засобів, щоб додати їх на склад аптеки.");
+    }
+  }
+
+  public static void validateDate(LocalDate start, LocalDate to) {
+    if (start.isAfter(to)) {
+      throw new NotValidDateForReportException("Введіть, будь ласка, коректні дати. Дата від якої буде генеруватись звіт, повинна бути перед датою, до якої буде генеруватись звіт.");
     }
   }
 
   private static void validate(String name, String s) {
     if (Strings.isBlank(name)) {
       throw new EmptyRequestException(s);
-    }
-  }
-
-  public static void validateDate(LocalDate start, LocalDate to) {
-    if (start.isAfter(to)){
-      throw new NotValidDateForReportException("Введіть, будь ласка, коректні дати. Дата від якої буде генеруватись звіт, повинна бути перед датою, до якої буде генеруватись звіт.");
     }
   }
 }

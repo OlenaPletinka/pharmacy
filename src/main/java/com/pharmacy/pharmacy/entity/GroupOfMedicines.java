@@ -1,5 +1,6 @@
 package com.pharmacy.pharmacy.entity;
 
+import com.pharmacy.pharmacy.enums.GroupName;
 import lombok.Data;
 
 import javax.persistence.*;

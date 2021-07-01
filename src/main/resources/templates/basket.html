@@ -2,12 +2,12 @@
 <html lang="uk-UA" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>handbook</title>
+    <title>Basket</title>
     <font color="#000000" size="7">
-        <center> ТОВАРИ В КОШИКУ </center>
+        <center> ТОВАРИ В КОШИКУ</center>
     </font>
-
 </head>
+
 <body style="background-color:#ffffcc;">
 <table border="1" style="width:800px">
     <tr>
@@ -18,8 +18,9 @@
         <td>кількість</td>
         <td>вартісь</td>
     </tr>
+
     <tr th:each="order : ${orderList}" align="center">
-        <form method="get" action="/buy" >
+        <form method="get" action="/buy">
             <td th:text="${order.items.medicine.id.name}"></td>
             <td th:text="${order.items.medicine.id.dose}"></td>
             <td th:text="${order.items.medicine.id.form}"></td>
@@ -36,8 +37,8 @@
 </table>
 
 <form method="get" action="/dispatch">
-    <input type="submit" class="btn btn-secondary float-right" value="РОЗРАХУВАТИСЯ" style="position: absolute;bottom: 40px;left: 800px; height:50px;width:300px; background-color:#66ff99; border-color:blue; color:black;">
+    <input type="submit" class="btn btn-secondary float-right" value="РОЗРАХУВАТИСЯ"
+           style="position: absolute;bottom: 40px;left: 800px; height:50px;width:300px; background-color:#66ff99; border-color:blue; color:black;">
 </form>
-
 </body>
 </html>

@@ -2,12 +2,13 @@
 <html lang="uk-UA" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>handbook</title>
+    <title>Add order items</title>
     <font color="#000000" size="7">
-        <center> ПРОДАЖ ЛІКАРСЬКИХ ЗАСОБІВ </center>
+        <center> ПРОДАЖ ЛІКАРСЬКИХ ЗАСОБІВ</center>
     </font>
 
 </head>
+
 <body style="background-color:#ffffcc;">
 <table border="1" style="width:800px">
     <tr>
@@ -20,27 +21,29 @@
         <td>купити упаковок</td>
         <td></td>
     </tr>
+
     <tr th:each="onWarehouse : ${medicines}" align="center">
-        <form method="get" action="/addOrderItems" >
-        <td th:text="${onWarehouse.medicine.id.name}"></td>
-        <td th:text="${onWarehouse.medicine.id.dose}"></td>
-        <td th:text="${onWarehouse.medicine.id.form}"></td>
-        <td th:text="${onWarehouse.medicine.quantity}"></td>
-        <td th:text="${onWarehouse.price}"></td>
-        <td th:text="${onWarehouse.quantity}"></td>
-        <td>
-        <select name="quantity" id="quantity">
-            <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}"></option>
-        </select>
-            <input type="hidden" id="name" name="name" th:value="${onWarehouse.medicine.id.name}">
-            <input type="hidden" id="dose" name="dose" th:value="${onWarehouse.medicine.id.dose}">
-            <input type="hidden" id="form" name="form" th:value="${onWarehouse.medicine.id.form}">
-        </td>
-        <td>
-            <button type="submit" name="submit" value="value" class="link-button">КУПИТИ</button>
-        </td>
+        <form method="get" action="/addOrderItems">
+            <td th:text="${onWarehouse.medicine.id.name}"></td>
+            <td th:text="${onWarehouse.medicine.id.dose}"></td>
+            <td th:text="${onWarehouse.medicine.id.form}"></td>
+            <td th:text="${onWarehouse.medicine.quantity}"></td>
+            <td th:text="${onWarehouse.price}"></td>
+            <td th:text="${onWarehouse.quantity}"></td>
+            <td>
+                <select name="quantity" id="quantity">
+                    <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}"></option>
+                </select>
+                <input type="hidden" id="name" name="name" th:value="${onWarehouse.medicine.id.name}">
+                <input type="hidden" id="dose" name="dose" th:value="${onWarehouse.medicine.id.dose}">
+                <input type="hidden" id="form" name="form" th:value="${onWarehouse.medicine.id.form}">
+            </td>
+            <td>
+                <button type="submit" name="submit" value="value" class="link-button">КУПИТИ</button>
+            </td>
         </form>
     </tr>
 </table>
 </body>
+
 </html>

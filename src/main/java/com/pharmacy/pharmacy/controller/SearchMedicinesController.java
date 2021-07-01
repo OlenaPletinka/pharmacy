@@ -24,19 +24,19 @@ public class SearchMedicinesController {
   private ObjectMapper objectMapper;
 
   @RequestMapping(value = "/byName", method = RequestMethod.GET)
-  public String searchByName(@RequestParam(name = "name") String name, Model model){
+  public String searchByName(@RequestParam(name = "name") String name, Model model) {
     UserRequestValidator.validateSearchByName(name);
 
     List<Medicines> medicines = medicinesService.searchByName(name);
     model.addAttribute("medicines", medicines);
 
-
     return "find_by";
   }
 
   @RequestMapping(value = "/bySymptom", method = GET)
-  public String searchBySymptom(@RequestParam(name = "symptom") String symptom, Model model){
+  public String searchBySymptom(@RequestParam(name = "symptom") String symptom, Model model) {
     UserRequestValidator.validateSearchBySymptom(symptom);
+
     List<Medicines> medicines = medicinesService.searchBySymptom(symptom);
     model.addAttribute("medicines", medicines);
 
@@ -54,7 +54,7 @@ public class SearchMedicinesController {
   }
 
   @RequestMapping(value = "/all", method = RequestMethod.GET)
-  public String showAllMedicines(Model model){
+  public String showAllMedicines(Model model) {
     List<Medicines> medicines = medicinesService.showAllMedicines();
     model.addAttribute("medicines", medicines);
 
@@ -63,12 +63,9 @@ public class SearchMedicinesController {
 
   @RequestMapping(value = "/description", method = GET)
   public String showDescription(@RequestParam("name") String name, @RequestParam("dose") String dose, @RequestParam("form") String form, Model model) {
-
     Medicines medicine = medicinesService.findById(name, dose, form);
     model.addAttribute("medicine", medicine);
 
     return "description";
   }
-
-
 }

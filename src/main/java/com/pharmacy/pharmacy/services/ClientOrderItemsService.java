@@ -32,15 +32,16 @@ public class ClientOrderItemsService {
     Medicines byId = medicinesService.findById(name, dose, form);
     PharmacyWarehouse pharmacyWarehouse = pharmacyWarehouseService.findByMedicines_id(byId);
 
-    if (pharmacyWarehouse.getQuantity()<quantity){
+    if (pharmacyWarehouse.getQuantity() < quantity) {
       throw new NotEnoughMedicinesOnPharmacyWareHouseException(String.format("На складі недостатньо ліків, максимальна кількість для замовлення - %d.", quantity));
     }
 
     ClientOrderItems orderItems = new ClientOrderItems();
     orderItems.setMedicine(byId);
     Double pricePerUnit = pharmacyWarehouse.getPrice();
-    orderItems.setPricePerUnit(pricePerUnit);;
-    orderItems.setCost(pricePerUnit* quantity);
+    orderItems.setPricePerUnit(pricePerUnit);
+    ;
+    orderItems.setCost(pricePerUnit * quantity);
     orderItems.setQuantity(quantity);
 
     return orderItems;

@@ -15,7 +15,6 @@ public class ClientOrderService {
   @Autowired
   private ClientOrderRepository clientOrderRepository;
 
-
   public void createOrder(String name, String dose, String form, Integer quantity) {
     ClientOrder clientOrder = new ClientOrder();
     ClientOrderItems orderItems = clientOrderItemsService.addItems(name, dose, form, quantity);

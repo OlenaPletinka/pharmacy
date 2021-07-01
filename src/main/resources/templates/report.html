@@ -2,39 +2,44 @@
 <html lang="uk-UA" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>handbook</title>
+    <title>report</title>
     <font color="#000000" size="7">
-        <center> ЗВІТ ПРОДАЖУ ЛІКАРСЬКИХ ЗАСОБІВ </center>
+        <center> ЗВІТ ПРОДАЖУ ЛІКАРСЬКИХ ЗАСОБІВ</center>
     </font>
-
 </head>
+
 <body style="background-color:#ffffcc;">
-<p> за період від <td th:text="${startDate}"></td> до <td th:text="${toDate}"></td></p>
+<p> за період від
+<td th:text="${startDate}"></td>
+до
+<td th:text="${toDate}"></td>
+</p>
 <br>
+
 <div th:if="${not #lists.isEmpty(reportDtos)}">
-<table border="1" style="width:1000px">
-    <tr>
-        <td>Назва лікарського засобу</td>
-        <td>доза</td>
-        <td>форма</td>
-        <td>кількість проданих</td>
-        <td>загальна вартісь</td>
-    </tr>
-    <tr th:each="dto : ${reportDtos}" align="center">
-        <form method="get" action="/buy" >
-            <td th:text="${dto.medicines.id.name}"></td>
-            <td th:text="${dto.medicines.id.dose}"></td>
-            <td th:text="${dto.medicines.id.form}"></td>
-            <td th:text="${dto.quantity}"></td>
-            <td th:text="${dto.totalPrice}"></td>
-        </form>
-    </tr>
-</table>
-<br>
-<table border="1" style="width:150px" align="right">
-    <td th:text="ВИРУЧКА"></td>
-    <td th:text="${receipts}"></td>
-</table>
+    <table border="1" style="width:1000px">
+        <tr>
+            <td>Назва лікарського засобу</td>
+            <td>доза</td>
+            <td>форма</td>
+            <td>кількість проданих</td>
+            <td>загальна вартісь</td>
+        </tr>
+        <tr th:each="dto : ${reportDtos}" align="center">
+            <form method="get" action="/buy">
+                <td th:text="${dto.medicines.id.name}"></td>
+                <td th:text="${dto.medicines.id.dose}"></td>
+                <td th:text="${dto.medicines.id.form}"></td>
+                <td th:text="${dto.quantity}"></td>
+                <td th:text="${dto.totalPrice}"></td>
+            </form>
+        </tr>
+    </table>
+    <br>
+    <table border="1" style="width:150px" align="right">
+        <td th:text="ВИРУЧКА"></td>
+        <td th:text="${receipts}"></td>
+    </table>
 </div>
 
 <div th:if="${#lists.isEmpty(reportDtos)}">
@@ -42,8 +47,8 @@
 </div>
 
 <form method="get" action="/">
-    <input type="submit" class="btn btn-secondary float-right" value="НА ГОЛОВНУ" style="position: absolute;bottom: 40px;left: 800px; height:50px;width:300px; background-color:#66ff99; border-color:blue; color:black;">
+    <input type="submit" class="btn btn-secondary float-right" value="НА ГОЛОВНУ"
+           style="position: absolute;bottom: 40px;left: 800px; height:50px;width:300px; background-color:#66ff99; border-color:blue; color:black;">
 </form>
-
 </body>
 </html>

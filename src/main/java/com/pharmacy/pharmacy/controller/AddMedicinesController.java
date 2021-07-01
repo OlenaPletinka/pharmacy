@@ -28,6 +28,7 @@ public class AddMedicinesController {
   @PostMapping(path = "/save", consumes = "application/json", produces = "application/json")
   public ResponseEntity<String> save(@RequestBody String medicines) {
     Medicines m1 = new Medicines();
+
     return new ResponseEntity<>(HttpStatus.OK);
   }
 }

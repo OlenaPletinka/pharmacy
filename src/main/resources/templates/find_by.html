@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="uk-UA" xmlns:th="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="UTF-8">
-    <title>handbook</title>
+    <title>Find by</title>
     <font color="#3344FF" size="8">
-        <center> РЕЗУЛЬТАТИ ПОШУКУ: </center>
+        <center> РЕЗУЛЬТАТИ ПОШУКУ:</center>
     </font>
-
 </head>
-<body style="background-color:#ffffcc;">
 
+<body style="background-color:#ffffcc;">
 <tr th:each="medicine : ${medicines}">
     <a th:href="@{/search/description(name=${medicine.id.name},dose=${medicine.id.dose},form=${medicine.id.form})}">
-    <td th:text="${medicine.id.name}"></td>
-    <td th:text="${medicine.id.dose}"></td>
-    <td th:text="${medicine.id.form}"></td>
+        <td th:text="${medicine.id.name}"></td>
+        <td th:text="${medicine.id.dose}"></td>
+        <td th:text="${medicine.id.form}"></td>
     </a>
     <br>
 </tr>
-
 </body>
 </html>

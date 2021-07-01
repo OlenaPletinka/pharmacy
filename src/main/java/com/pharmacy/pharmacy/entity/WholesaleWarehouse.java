@@ -6,6 +6,6 @@ import javax.persistence.Entity;
 
 @Entity
 @Data
-public class WholesaleWarehouse extends Warehouse{
+public class WholesaleWarehouse extends Warehouse {
 
 }
