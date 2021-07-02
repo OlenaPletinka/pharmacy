@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>error page</title>
+    <font color="#000000" size="7">
+        <center> ПОМИЛКА</center>
+    </font>
+</head>
+
+<body style="background-color:#ffffcc;">
+<table border="1" style="width:800px">
+    <tr>
+        <td>ДАТА</td>
+        <td th:text="${timestamp}"/>
+    </tr>
+    <tr>
+        <td>ШЛЯХ</td>
+        <td th:text="${path}"/>
+    </tr>
+    <tr>
+        <td>ПОМИЛКА</td>
+        <td th:text="${error}"/>
+    </tr>
+    <tr>
+        <td>СТАТУС</td>
+        <td th:text="${status}"/>
+    </tr>
+    <tr>
+        <td>ПОВІДОМЛЕННЯ</td>
+        <td th:text="${message}"/>
+    </tr>
+</table>
+
+<form method="get" action="/">
+    <input type="submit" class="btn btn-secondary float-right" value="НА ГОЛОВНУ"
+           style="position: absolute;bottom: 40px;left: 800px; height:50px;width:300px; background-color:#66ff99; border-color:blue; color:black;">
+</form>
+
+</body>
+</html>
+
+
+<!--<form method="get" th:action="@{''}">
+    <input th:field="${path}" type="submit" class="btn btn-secondary float-right" value="НАЗАД"
+           style="position: absolute;bottom: 40px;left: 800px; height:50px;width:300px; background-color:#66ff99; border-color:blue; color:black;">
+</form>-->
