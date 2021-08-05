@@ -15,5 +15,5 @@ public class PharmacyWarehouse extends Warehouse {
   private Integer norm;
 
   @Column(columnDefinition = "integer default 10")
-  private Integer critical_norm;
+  private Integer criticalNorm;
 }

@@ -14,7 +14,7 @@ public interface MedicinesRepository extends CrudRepository<Medicines, Integer> 
 
   List<Medicines> searchBySymptoms_name(SymptomsName symptom);
 
-  List<Medicines> searchByGroups_name(GroupName valueOf);
+  List<Medicines> searchByGroups_name(GroupName groupName);
 
   List<Medicines> findByOrderById_nameAsc();
 

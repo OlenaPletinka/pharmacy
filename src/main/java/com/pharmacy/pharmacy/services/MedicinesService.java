@@ -9,7 +9,6 @@ import com.pharmacy.pharmacy.exception.NoSuchMedicinesException;
 import com.pharmacy.pharmacy.repository.MedicinesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,22 +20,12 @@ public class MedicinesService {
   private GroupOfMedicinesService groupOfMedicinesService;
   @Autowired
   private SymptomsService symptomsService;
-  @Autowired
-  private PharmacyWarehouseService pharmacyWarehouseService;
 
   public List<Medicines> searchByName(String name) {
     List<Medicines> medicines = medicinesRepository.searchById_name(name);
     checkIfEmpty(medicines, "Даний лікарський засіб відсутній у довіднику.");
 
     return medicines;
-  }
-
-  @Transactional
-  public Medicines addMedicinesToList(Medicines medicines) {
-    groupOfMedicinesService.addGroup(medicines.getGroups());
-    symptomsService.addSympoms(medicines.getSymptoms());
-
-    return medicinesRepository.save(medicines);
   }
 
   public List<Medicines> searchBySymptom(String symptom) {
@@ -59,8 +48,6 @@ public class MedicinesService {
     checkIfEmpty(medicines, "Лікарські засоби у довіднику відсутні.");
 
     return medicines;
-
-
   }
 
   public Medicines findById(String name, String dose, String form) {
@@ -68,9 +55,9 @@ public class MedicinesService {
     return medicinesRepository.findById(id);
   }
 
-  private void checkIfEmpty(List<Medicines> medicines, String s) {
+  private void checkIfEmpty(List<Medicines> medicines, String message) {
     if (medicines.isEmpty()) {
-      throw new NoSuchMedicinesException(s);
+      throw new NoSuchMedicinesException(message);
     }
   }
 

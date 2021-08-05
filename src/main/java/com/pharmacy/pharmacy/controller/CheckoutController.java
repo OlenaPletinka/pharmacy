@@ -1,7 +1,6 @@
 package com.pharmacy.pharmacy.controller;
 
 import com.pharmacy.pharmacy.entity.ClientOrder;
-import com.pharmacy.pharmacy.exception.BasketIsEmptyException;
 import com.pharmacy.pharmacy.services.CheckoutService;
 import com.pharmacy.pharmacy.services.ClientOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +21,6 @@ public class CheckoutController {
   @RequestMapping(path = "/checkout", method = RequestMethod.GET)
   public String checkout(Model model) {
     List<ClientOrder> orderList = clientOrderService.showAllItems();
-
-    if (orderList.isEmpty()) {
-      throw new BasketIsEmptyException("Ваш кошик порожній! Продовжіть, будь ласка, покупки.");
-    }
-
     model.addAttribute("orderList", orderList);
     Double sum = checkoutService.calculateTotalSum(orderList);
     model.addAttribute("sum", sum);
@@ -35,7 +29,7 @@ public class CheckoutController {
   }
 
   @RequestMapping(path = "/dispatch", method = RequestMethod.GET)
-  public String dispatch(Model model) {
+  public String dispatch() {
     checkoutService.dispatch();
 
     return "welcome";

@@ -22,7 +22,7 @@ public class PharmacyWareHouseController {
 
   @RequestMapping(path = "/showMedicinesFromPharmacyWareHouse", method = RequestMethod.GET)
   public String showMedicinesFromPharmacyWareHouse(@RequestParam(name = "name") String name, Model model) {
-    UserRequestValidator.validateSearchByName(name);
+    UserRequestValidator.validateName(name);
 
     List<PharmacyWarehouse> medicines = pharmacyWarehouseService.searchByName(name);
     model.addAttribute("medicines", medicines);

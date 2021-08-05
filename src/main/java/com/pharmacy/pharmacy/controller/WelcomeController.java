@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
-public class WellcomeController {
+public class WelcomeController {
   @Autowired
   private MedicinesService medicinesService;
   @Autowired
@@ -36,7 +36,7 @@ public class WellcomeController {
   }
 
   @RequestMapping(value = "selectScenario", method = GET)
-  public String profile(@RequestParam("value") String value, Model model) {
+  public String redirect(@RequestParam("value") String value, Model model) {
     String result;
 
     if (value.equals("ДОВІДНИК")) {
@@ -59,7 +59,7 @@ public class WellcomeController {
       LocalDate date = LocalDate.now();
       model.addAttribute("toDate", date);
 
-      result = "generate_Report";
+      result = "generate_report";
     }
     return result;
   }
