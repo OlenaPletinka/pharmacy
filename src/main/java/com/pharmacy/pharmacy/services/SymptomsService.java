@@ -12,10 +12,6 @@ public class SymptomsService {
   @Autowired
   private SymptomsRepository symptomsRepository;
 
-  public void addSympoms(List<Symptoms> symptoms) {
-    symptomsRepository.saveAll(symptoms);
-  }
-
   public List<Symptoms> showAllSymptoms() {
     return symptomsRepository.findAll();
   }

@@ -2,6 +2,7 @@ package com.pharmacy.pharmacy.services;
 
 import com.pharmacy.pharmacy.entity.ClientOrder;
 import com.pharmacy.pharmacy.entity.ClientOrderItems;
+import com.pharmacy.pharmacy.exception.BasketIsEmptyException;
 import com.pharmacy.pharmacy.repository.ClientOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,11 @@ public class ClientOrderService {
   }
 
   public List<ClientOrder> showAllItems() {
-    return clientOrderRepository.findAll();
+    List<ClientOrder> clientOrders = clientOrderRepository.findAll();
+    if (clientOrders.isEmpty()) {
+      throw new BasketIsEmptyException("Ваш кошик порожній! Продовжіть, будь ласка, покупки.");
+    }
+    return clientOrders;
   }
 
   public void cleanupClientOrder() {

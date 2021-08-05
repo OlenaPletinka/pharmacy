@@ -25,7 +25,7 @@ public class SearchMedicinesController {
 
   @RequestMapping(value = "/byName", method = RequestMethod.GET)
   public String searchByName(@RequestParam(name = "name") String name, Model model) {
-    UserRequestValidator.validateSearchByName(name);
+    UserRequestValidator.validateName(name);
 
     List<Medicines> medicines = medicinesService.searchByName(name);
     model.addAttribute("medicines", medicines);
@@ -35,7 +35,7 @@ public class SearchMedicinesController {
 
   @RequestMapping(value = "/bySymptom", method = GET)
   public String searchBySymptom(@RequestParam(name = "symptom") String symptom, Model model) {
-    UserRequestValidator.validateSearchBySymptom(symptom);
+    UserRequestValidator.validateSymptom(symptom);
 
     List<Medicines> medicines = medicinesService.searchBySymptom(symptom);
     model.addAttribute("medicines", medicines);
@@ -45,7 +45,7 @@ public class SearchMedicinesController {
 
   @RequestMapping(value = "/byGroup", method = GET)
   public String searchByGroup(@RequestParam(name = "group") String group, Model model) throws JsonProcessingException {
-    UserRequestValidator.validateSearchByGroup(group);
+    UserRequestValidator.validateGroup(group);
 
     List<Medicines> medicines = medicinesService.searchByGroup(group);
     model.addAttribute("medicines", medicines);
