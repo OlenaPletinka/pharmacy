@@ -22,7 +22,6 @@ public class Medicines {
   @Column
   private String signature;
 
-
   @ManyToMany(fetch = FetchType.LAZY)
   @CollectionTable(name = "medicines_group")
   @JoinColumns({

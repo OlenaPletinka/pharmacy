@@ -40,7 +40,6 @@ public class ClientOrderItemsService {
     orderItems.setMedicine(byId);
     Double pricePerUnit = pharmacyWarehouse.getPrice();
     orderItems.setPricePerUnit(pricePerUnit);
-    ;
     orderItems.setCost(pricePerUnit * quantity);
     orderItems.setQuantity(quantity);
 
