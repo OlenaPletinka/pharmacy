@@ -1,6 +1,5 @@
 package com.pharmacy.pharmacy;
 
-
 import liquibase.exception.LiquibaseException;
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +19,5 @@ public class PharmacyApplication {
     liquibase.setChangeLog("classpath:db/changelog/db.changelog-master.xml");
     liquibase.setShouldRun(true);
     liquibase.afterPropertiesSet();
-
   }
 }
