@@ -32,8 +32,9 @@ public class ClientOrderItemsService {
     Medicines byId = medicinesService.findById(name, dose, form);
     PharmacyWarehouse pharmacyWarehouse = pharmacyWarehouseService.findByMedicines_id(byId);
 
-    if (pharmacyWarehouse.getQuantity() < quantity) {
-      throw new NotEnoughMedicinesOnPharmacyWareHouseException(String.format("На складі недостатньо ліків, максимальна кількість для замовлення - %d.", quantity));
+    Integer warehouseQuantity = pharmacyWarehouse.getQuantity();
+    if (warehouseQuantity < quantity) {
+      throw new NotEnoughMedicinesOnPharmacyWareHouseException(String.format("На складі недостатньо ліків, максимальна кількість для замовлення - %d.", warehouseQuantity));
     }
 
     ClientOrderItems orderItems = new ClientOrderItems();
